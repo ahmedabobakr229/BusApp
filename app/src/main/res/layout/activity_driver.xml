@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:background="#022a31"
+    tools:context=".Driver.DriverActivity">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#66cccc"
+                android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="Location"
+                android:layout_marginTop="5dp"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="#000"/>
+            <Button
+                android:id="@+id/enable_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn"
+                android:text="Enable"
+                android:textColor="#fff"
+                android:textAllCaps="false"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_marginTop="10dp"
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#088da5"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:text="Number of bus"/>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+               android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:id="@+id/numOfBus">
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:inputType="number"
+                    android:layout_marginBottom="10dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/numofbus"/>
+            </android.support.design.widget.TextInputLayout>
+
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_marginTop="10dp"
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:text="Available Seats"/>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:id="@+id/seats_id">
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:inputType="number"
+                    android:layout_marginBottom="10dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/numofbus"/>
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn"
+        android:textColor="#fff"
+        android:text="Enter"
+        android:id="@+id/save_id"
+        android:layout_marginTop="10dp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn"
+        android:textColor="#fff"
+        android:text="logout"
+        android:id="@+id/logout"
+        android:layout_marginTop="10dp"/>
+</LinearLayout>

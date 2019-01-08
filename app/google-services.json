@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "262458817052",
+    "firebase_url": "https://busapp-8b6d5.firebaseio.com",
+    "project_id": "busapp-8b6d5",
+    "storage_bucket": "busapp-8b6d5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:262458817052:android:4120ccd0a2a7bd27",
+        "android_client_info": {
+          "package_name": "com.example.documents.busapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "262458817052-3ij1clqlfq50uk4n2bg2ndc77n0j1n32.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFY1d78epaDIrT6U7_UMCvM0OyNGrMpx4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
