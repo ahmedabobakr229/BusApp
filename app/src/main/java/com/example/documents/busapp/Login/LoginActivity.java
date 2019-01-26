@@ -58,14 +58,6 @@ public class LoginActivity extends AppCompatActivity {
         callbackManager = CallbackManager.Factory.create();
         facebook_login = (LoginButton)findViewById(R.id.login_button);
 
-//        appBarLayout = (AppBarLayout)findViewById(R.id.main_app_bar);
-//        mToolbar = (Toolbar) findViewById(R.id.users_appBar);
-//       // searchView = (SearchView)findViewById(R.id.search_bar);
-//        setSupportActionBar(mToolbar);
-//
-//        getSupportActionBar().setTitle("Drivers");
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        mLayoutManager = new LinearLayout(this);
 
         email = (EditText)findViewById(R.id.email_id);
         password = (EditText)findViewById(R.id.pass_id);

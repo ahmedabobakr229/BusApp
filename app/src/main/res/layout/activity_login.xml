@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_gravity="center"
-    android:background="#c12626"
+    android:background="#416874"
     tools:context=".Login.LoginActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="350dp"
-        android:background="#ea3737">
-
+        android:background="#243b41">
 
         <ImageView
             android:id="@+id/logo"
@@ -23,10 +26,9 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:src="@drawable/logo4"
+            android:src="@drawable/driver"
             ></ImageView>
             <!--android:src="@drawable/ic_airport_shuttle_white_24dp"-->
-
 
         <EditText
             android:id="@+id/email_id"
@@ -49,7 +51,8 @@
             android:background="@drawable/editxt"
             android:gravity="center"
             android:hint="Password"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:inputType="textPassword"/>
 
         <Button
             android:id="@+id/login_id"
@@ -93,3 +96,4 @@
         android:layout_marginBottom="30dp" />
 </LinearLayout>
 
+</ScrollView>

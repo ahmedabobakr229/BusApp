@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+<LinearLayout
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#416874"
     tools:context=".Passenger.PassengerActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="350dp"
-        android:background="#ffbc37">
+        android:background="#243b41">
 
-        <include layout="@layout/app_bar_layout"
-            android:id="@+id/users_appBar">
-        </include>
 
         <ImageView
             android:id="@+id/logo"
@@ -23,8 +26,8 @@
             android:layout_height="100dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
-            android:src="@drawable/logo4" />
+            android:layout_marginTop="20dp"
+            android:src="@drawable/pass" />
 
         <EditText
             android:id="@+id/email_id_pass"
@@ -32,7 +35,7 @@
             android:layout_height="50dp"
             android:layout_below="@+id/logo"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="-10dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/editxt"
             android:hint="Email"
             android:textAlignment="center" />
@@ -47,6 +50,7 @@
             android:background="@drawable/editxt"
             android:gravity="center"
             android:hint="Password"
+            android:inputType="textPassword"
             android:textAlignment="center" />
 
         <Button
@@ -90,3 +94,4 @@
         android:layout_marginBottom="30dp" />
 
 </LinearLayout>
+</ScrollView>

@@ -3,7 +3,18 @@ package com.example.documents.busapp.AllDrivers;
 public class Buss {
     public String busNum;
     public String AvaSeats;
+    public String Sta;
+
+
+
     String id ;
+
+    public Buss(String numBus, String avaSeats , String sta) {
+        this.busNum = numBus;
+        this.AvaSeats = avaSeats;
+        this.Sta = sta ;
+    }
+
 
     public String getId() {
         return id;
@@ -15,12 +26,6 @@ public class Buss {
     public Buss() {
     }
 
-    public Buss(String busNum, String avaSeats) {
-        this.busNum = busNum;
-        this.AvaSeats = avaSeats;
-
-    }
-
 
     public String getBusNum() {
         return busNum;
@@ -28,6 +33,14 @@ public class Buss {
 
     public String getAva_seats() {
         return AvaSeats;
+    }
+
+    public String getSta() {
+        return Sta;
+    }
+
+    public void setSta(String sta) {
+        Sta = sta;
     }
 
 
@@ -44,7 +57,8 @@ public class Buss {
     public String toString() {
         return "Buss{" +
                 "busNum='" + busNum + '\'' +
-                ", Ava_seats='" + AvaSeats+ '\'' +
+                ", AvaSeats='" + AvaSeats + '\'' +
+                ", Sta='" + Sta + '\'' +
                 ", id='" + id + '\'' +
                 '}';
     }

@@ -1,5 +1,4 @@
 package com.example.documents.busapp;
-
 import android.Manifest;
 import android.app.Activity;
 import android.app.Service;
@@ -9,27 +8,37 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.Bundle;
 import android.os.IBinder;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Toast;
 
+import com.example.documents.busapp.Driver.OActivity;
+import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.PendingResult;
-import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResult;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
-class MyService extends Service implements GoogleApiClient.ConnectionCallbacks
+
+import static java.security.AccessController.getContext;
+
+public class MyService extends Service implements GoogleApiClient.ConnectionCallbacks
         , GoogleApiClient.OnConnectionFailedListener {
     LocationManager locationManager;
     String latitude;
@@ -45,7 +54,6 @@ class MyService extends Service implements GoogleApiClient.ConnectionCallbacks
 
         return null;
     }
-
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -88,7 +96,8 @@ class MyService extends Service implements GoogleApiClient.ConnectionCallbacks
                                 Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                             return;
                         }
-                        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 100, locationListener);
+                        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER
+                                , 5000, 100, locationListener);
                         break;
                     case LocationSettingsStatusCodes.RESOLUTION_REQUIRED:
                         try {
@@ -136,7 +145,8 @@ class MyService extends Service implements GoogleApiClient.ConnectionCallbacks
 
                     } else {
                         Log.i(TAG , latitude + "    " + longtude);
-                       // setof(latitude , longtude);
+                        setof(latitude , longtude);
+                        Toast.makeText(MyService.this, latitude + "  =>  " + longtude, Toast.LENGTH_SHORT).show();
                     }
 
                 } catch (Exception e) {
@@ -170,32 +180,53 @@ class MyService extends Service implements GoogleApiClient.ConnectionCallbacks
 
     @Override
     public void onConnectionSuspended(int i) {
-
     }
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
     }
 
+    private void setof(String lati , String longi) {
+          DatabaseReference mLocationDatabase;
+          FirebaseUser mCurrentUser;
+        mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
+        String current_uid = mCurrentUser.getUid();
+        mLocationDatabase= FirebaseDatabase.getInstance().getReference().child("Users").child("Drivers").child(current_uid);
 
-//    private void setof(String lati , String longi) {
-//        ApiInterface apiService1 =
-//                ApiClient.getClient().create(ApiInterface.class);
-//        Call<PublicResponse> call1 = apiService1.editLocation("1",
-//                Sesstion.getInstance(this).getTayar().getId() , longi , lati);
-//        call1.enqueue(new Callback<PublicResponse>() {
-//            @Override
-//            public void onResponse(Call<PublicResponse> call, retrofit2.Response<PublicResponse> response) {
-//                // Toast.makeText(ProfileActivity.this, response.body().getAck(), Toast.LENGTH_SHORT).show();
-//                Log.i(TAG ,  response.body().getAck());
-//            }
-//            @Override
-//            public void onFailure(Call<PublicResponse> call, Throwable t) {
-//                Log.e(TAG , "failer" );
-//            }
-//        });
-//    }
+        mLocationDatabase.child("lat").setValue(lati).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+
+                if(task.isSuccessful()){
+
+                    Toast.makeText(MyService.this, "Changed Successfully", Toast.LENGTH_SHORT).show();
+
+                } else {
+
+                    Toast.makeText(getApplicationContext(), "There was some error in saving Changes.", Toast.LENGTH_LONG).show();
+
+                }
+
+            }
+        });
+
+        mLocationDatabase.child("lng").setValue(longi).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+
+                if(task.isSuccessful()){
+
+                    Toast.makeText(MyService.this, "Changed Successfully", Toast.LENGTH_SHORT).show();
+
+                } else {
+
+                    Toast.makeText(getApplicationContext(), "There was some error in saving Changes.", Toast.LENGTH_LONG).show();
+
+                }
+
+            }
+        });
+    }
 
     @Override
     public void onTaskRemoved(Intent rootIntent) {

@@ -4,6 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+
     android:id="@+id/relative">
 
     <android.support.v7.widget.CardView
@@ -14,6 +15,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#912227"
             android:orientation="horizontal">
             <ImageView
                 android:id="@+id/def_image"
@@ -42,7 +44,7 @@
                         android:textAlignment="center"
                         android:layout_gravity="center"
                         android:textSize="20dp"
-                        android:textColor="#000"/>
+                        android:textColor="#fff"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -53,7 +55,7 @@
                         android:layout_gravity="center"
                         android:textSize="20dp"
                         android:textStyle="bold"
-                        android:textColor="#000"/>
+                        android:textColor="#f5a633"/>
 
                 </LinearLayout>
 
@@ -69,7 +71,7 @@
                         android:textAlignment="center"
                         android:layout_gravity="center"
                         android:textSize="20dp"
-                        android:textColor="#000"/>
+                        android:textColor="#fff"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -80,7 +82,7 @@
                         android:textAlignment="center"
                         android:textSize="20dp"
                         android:textStyle="bold"
-                        android:textColor="#000"/>
+                        android:textColor="#f5a633"/>
 
                 </LinearLayout>
 

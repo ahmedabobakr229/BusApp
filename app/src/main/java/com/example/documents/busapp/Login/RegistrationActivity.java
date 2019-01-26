@@ -87,10 +87,11 @@ public class RegistrationActivity extends AppCompatActivity {
                             userMap.put("lng","Hi there");
                             userMap.put("numBus","default");
                             userMap.put("avaSeats","default");
+                            userMap.put("Stations" , "default");
 
                             mDatabase.setValue(userMap);
 
-                            /*  */
+
                         }
                         if (task.isSuccessful()){
                             userProfile();

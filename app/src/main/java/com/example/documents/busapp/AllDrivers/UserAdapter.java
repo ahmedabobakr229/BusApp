@@ -1,6 +1,7 @@
 package com.example.documents.busapp.AllDrivers;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,6 +10,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.documents.busapp.EveryBus_Activity;
 import com.example.documents.busapp.R;
 
 import java.util.Collections;
@@ -51,6 +55,17 @@ public class UserAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         current = data.get(position);
         myHolder.number.setText(current.getBusNum());
         myHolder.avaSeats.setText(current.getAva_seats());
+
+        ((MyViewHolder)holder).relativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(mContext, EveryBus_Activity.class);
+                i.putExtra("busNum" , data.get(position).getBusNum());
+                i.putExtra("AvaSeats" , data.get(position).getAva_seats());
+                i.putExtra("Stations" , data.get(position).getSta());
+                mContext.startActivity(i);
+            }
+        });
     }
 
     @Override
@@ -71,6 +86,8 @@ public class UserAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
            avaSeats = (TextView)itemView.findViewById(R.id.driver_ava);
            imageView = (ImageView)itemView.findViewById(R.id.def_image);
            relativeLayout = (RelativeLayout)itemView.findViewById(R.id.relative);
+
+
            itemView.setOnClickListener(this);
         }
 

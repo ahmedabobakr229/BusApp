@@ -65,15 +65,15 @@ public class OActivity extends AppCompatActivity implements
         mLongitudeText = (TextView) findViewById((R.id.longitude_text));
         addData = (Button)findViewById(R.id.addToFirebase);
 
-        getActivity();
-      //  registerLocationUpdates();
-//        locationManager = (LocationManager)getActivity().getSystemService(LOCATION_SERVICE);
+
+//        locationManager = (LocationManager)getSystemService(LOCATION_SERVICE);
 //        locationManager.requestLocationUpdates(provider, 1L, 1f, locationListener);
 //        locationManager.requestLocationUpdates();
 
+
         buildGoogleApiClient();
 
-        initializeLocationManager();
+
 
         locationRequest = LocationRequest.create();
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
@@ -86,6 +86,7 @@ public class OActivity extends AppCompatActivity implements
 
         result =
                 LocationServices.SettingsApi.checkLocationSettings(mGoogleApiClient, builder.build());
+
 
         mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
         String current_uid = mCurrentUser.getUid();
@@ -138,66 +139,19 @@ public class OActivity extends AppCompatActivity implements
     }
 
 
-
-    private void getActivity() {
-
-    }
-
-
     private void initializeLocationManager() {
 
         locationListener = new LocationListener() {
             @SuppressLint("LongLogTag")
             @Override
             public void onLocationChanged(Location location) {
+
                 latitude = String.valueOf(location.getLatitude());
                 longtude = String.valueOf(location.getLongitude());
 
-
-
-
                 if (TextUtils.isEmpty(latitude) || TextUtils.isEmpty(longtude) || latitude == null || longtude == null) {
-                        Log.i(TAG , "you must be out door !");
+
                         Toast.makeText(OActivity.this, "you must be out door", Toast.LENGTH_SHORT).show();
-
-                        latitude = mLatitudeText.getText().toString();
-                        longtude = mLongitudeText.getText().toString();
-
-                        mLocationDatabase.child("lat").setValue(latitude).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-
-                                if(task.isSuccessful()){
-
-
-                                    Toast.makeText(OActivity.this, "Changed Successfully", Toast.LENGTH_SHORT).show();
-
-                                } else {
-
-                                    Toast.makeText(getApplicationContext(), "There was some error in saving Changes.", Toast.LENGTH_LONG).show();
-
-                                }
-
-                            }
-                        });
-
-                        mLocationDatabase.child("lng").setValue(longtude).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-
-                                if(task.isSuccessful()){
-
-
-                                    Toast.makeText(OActivity.this, "Changed Successfully", Toast.LENGTH_SHORT).show();
-
-                                } else {
-
-                                    Toast.makeText(getApplicationContext(), "There was some error in saving Changes.", Toast.LENGTH_LONG).show();
-
-                                }
-
-                            }
-                        });
 
 
                     } else {
@@ -226,89 +180,6 @@ public class OActivity extends AppCompatActivity implements
 
     //___________________________________________________________________________________________
 
-//    @SuppressLint("LongLogTag")
-//    private void initializeLocationManager() {
-//        Log.e(TAG, "initializeLocationManager");
-//        locationListener = new LocationListener() {
-//            @SuppressLint("LongLogTag")
-//            @Override
-//            public void onLocationChanged(Location location) {
-//                try {
-//                    latitude = String.valueOf(location.getLatitude());
-//                    longtude = String.valueOf(location.getLongitude());
-//                    if (TextUtils.isEmpty(latitude) || TextUtils.isEmpty(longtude) || latitude == null || longtude == null) {
-//                        Log.i(TAG , "you must be out door !");
-//                        Toast.makeText(OActivity.this, "you must be out door", Toast.LENGTH_SHORT).show();
-//
-//                        latitude = mLatitudeText.getText().toString();
-//                        longtude = mLongitudeText.getText().toString();
-//
-//                        mLocationDatabase.child("lat").setValue(latitude).addOnCompleteListener(new OnCompleteListener<Void>() {
-//                            @Override
-//                            public void onComplete(@NonNull Task<Void> task) {
-//
-//                                if(task.isSuccessful()){
-//
-//
-//                                    Toast.makeText(OActivity.this, "Changed Successfully", Toast.LENGTH_SHORT).show();
-//
-//                                } else {
-//
-//                                    Toast.makeText(getApplicationContext(), "There was some error in saving Changes.", Toast.LENGTH_LONG).show();
-//
-//                                }
-//
-//                            }
-//                        });
-//
-//                        mLocationDatabase.child("lng").setValue(longtude).addOnCompleteListener(new OnCompleteListener<Void>() {
-//                            @Override
-//                            public void onComplete(@NonNull Task<Void> task) {
-//
-//                                if(task.isSuccessful()){
-//
-//
-//                                    Toast.makeText(OActivity.this, "Changed Successfully", Toast.LENGTH_SHORT).show();
-//
-//                                } else {
-//
-//                                    Toast.makeText(getApplicationContext(), "There was some error in saving Changes.", Toast.LENGTH_LONG).show();
-//
-//                                }
-//
-//                            }
-//                        });
-//
-//
-//                    } else {
-//                        Log.i(TAG , latitude + "   " + longtude);
-//                        // setof(latitude , longtude);
-//                    }
-//
-//                } catch (Exception e) {
-//                    //  Toast.makeText(getContext(), "you must be out door !", Toast.LENGTH_SHORT).show();
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onStatusChanged(String provider, int status, Bundle extras) {
-//
-//
-//            }
-//
-//            @Override
-//            public void onProviderEnabled(String provider) {
-//                Log.i(TAG  , "onProviderEnabled");
-//            }
-//
-//            @Override
-//            public void onProviderDisabled(String provider) {
-//
-//            }
-//        };
-//
-//    }
 
     protected synchronized void buildGoogleApiClient() {
         mGoogleApiClient = new GoogleApiClient.Builder(this)

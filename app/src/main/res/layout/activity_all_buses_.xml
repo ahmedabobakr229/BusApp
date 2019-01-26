@@ -6,21 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#fff"
     tools:context=".AllDrivers.AllBuses_Activity">
 
 
 
-    <SearchView
-        android:layout_width="300dp"
-        android:gravity="center"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:id="@+id/search_bar"
-        android:background="@drawable/searchbar">
+    <com.google.android.gms.maps.MapView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:id="@+id/map_view">
+    </com.google.android.gms.maps.MapView>
 
-    </SearchView>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/bus_list"
         android:layout_width="match_parent"
@@ -28,7 +24,6 @@
         android:layout_marginTop="50dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/users_appBar"
         android:layout_alignParentLeft="true">
     </android.support.v7.widget.RecyclerView>
 

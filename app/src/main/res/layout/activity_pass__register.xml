@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
-    android:background="#82dcd0"
+    android:background="#416874"
     tools:context=".Passenger.Pass_RegisterActivity">
 
     <LinearLayout
@@ -22,7 +22,7 @@
             android:id="@+id/app_logo"
             android:layout_marginBottom="20dp"
             android:foregroundGravity="center"
-            android:src="@mipmap/ic_launcher"/>
+            android:src="@drawable/pass"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="50dp"

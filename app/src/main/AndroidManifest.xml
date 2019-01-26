@@ -8,7 +8,7 @@
          location permissions for the 'MyLocation' functionality. 
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -17,7 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Splashctivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,10 +32,14 @@
         <activity android:name=".Passenger.Pass_RegisterActivity" />
         <activity android:name=".Passenger.Pass_InfoActivity" />
         <activity android:name=".AllDrivers.AllBuses_Activity" />
+        <activity android:name=".MainActivity" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
 
         <activity
             android:name="com.facebook.FacebookActivity"
@@ -74,7 +78,15 @@
         <activity android:name=".Driver.OActivity" />
         <activity android:name=".Passenger.LocationDriverActivity" />
         <activity android:name=".TrackActivity" />
-        <activity android:name=".TryActivity"></activity>
+
+        <service
+            android:name=".MyService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".EveryBus_Activity" />
+        <activity android:name=".TryLcationActivity" />
+        <activity android:name=".PassengerCurrentLocation"></activity>
     </application>
 
 </manifest>

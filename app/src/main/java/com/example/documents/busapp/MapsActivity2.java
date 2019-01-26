@@ -1,6 +1,7 @@
 package com.example.documents.busapp;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -75,6 +76,7 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
         mMap.animateCamera(CameraUpdateFactory.zoomTo(13));
     }
 
+    @SuppressLint("RestrictedApi")
     @Override
     @NonNull
     public void onConnected(@Nullable Bundle bundle) {
